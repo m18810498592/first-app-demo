@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--Maven构建多模块项目-->
+	<!-- 此处由jar 改为 pom-->
+	<!--pom表示它是一个被继承的模块-->
+	<packaging>pom</packaging>
+
+	<!--声明多个子模块-->
+	<modules>
+		<module>web</module>
+		<module>persistence</module>
+		<module>model</module>
+	</modules>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>SpringBoot</groupId>
+	<artifactId>first-app-demo</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>first-app-demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<!--统一管理依赖的版本号-->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--依赖 model层-->
+		<dependency>
+			<groupId>SpringBoot</groupId>
+			<artifactId>model</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<!--依赖 persistence层-->
+		<dependency>
+			<groupId>SpringBoot</groupId>
+			<artifactId>persistence</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<!--Spring Security 依赖	只要加入依赖，项目的所有接口都会被自动保护起来。	-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+
+</project>
